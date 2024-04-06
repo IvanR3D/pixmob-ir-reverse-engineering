@@ -161,3 +161,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add options from special_effects
     addOptions(special_effects);
 });
+
+async function blinkColors() {
+    for (let i = 0; i < Object.keys(base_color_effects).length; i++) {
+        sendEffect(Object.keys(base_color_effects)[i]);
+        await new Promise(resolve => setTimeout(resolve, 100));
+    }
+}
+
+fadecolors = [
+    'RED', 'GREEN', 'GREEN_DIM', 'LIGHT_GREEN', 'YELLOWGREEN', 'BLUE', 'LIGHT_BLUE', 'DIM_BLUE', 'MAGENTA', 'YELLOW', 'PINK', 'ORANGE', 'REDORANGE', 'WHITISH', 'TURQUOISE' 
+]
+async function fadeColors() {
+    for (let i = 0; i < fadecolors.length; i++) {
+        sendEffect(fadecolors[i], 'FADE_2');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+    }
+}

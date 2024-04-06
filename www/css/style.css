@@ -72,6 +72,14 @@ h1 {
 .btn-disconnect:hover {
     background-color: #701f1f;
 }
+.effect-btn {
+    color: white;
+    background-color: #701f1f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .modal {
     display: none;
     position: fixed;

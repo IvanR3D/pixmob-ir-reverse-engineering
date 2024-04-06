@@ -17,7 +17,6 @@
             </div>
             <div class="input-group">
                 <label for="main-effect">Main Effect:</label>
-                <!-- <input type="text" id="main-effect" name="main-effect" placeholder="Enter main effect..."> -->
                 <select name="main-effect" id="main-effect"></select>
             </div>
             <div class="input-group">
@@ -42,6 +41,10 @@
             </div>
             <button type="submit" class="btn">Send</button>
         </form>
+        <div class="buttons-container">
+            <button class="effect-btn" onclick="blinkColors()">Blink colors</button>
+            <button class="effect-btn" onclick="fadeColors()">Fade colors</button>
+        </div>
     </div>
 
     <div id="helpModal" class="modal">
