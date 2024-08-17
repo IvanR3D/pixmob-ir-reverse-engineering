@@ -8,13 +8,14 @@ connectBtn.addEventListener('click', function() {
     }
 });
 
-function disconnectSerial() {
+async function disconnectSerial() {
+    writer.releaseLock();
     //console.log('Disconnecting from board...');
+    showNotification("Device disconnected!", "disconnected");
     isConnected = false;
     connectBtn.classList.remove('btn-disconnect');
     connectBtn.classList.add('btn-connect');
     connectBtn.innerText = 'Connect board';
-    writer.close();
     port.close();
 }
 
@@ -27,6 +28,7 @@ async function connectSerial() {
             writer = port.writable.getWriter();
             //console.log('Connecting to board...');
             isConnected = true;
+            showNotification("Device connected successfully!", "connected");
             connectBtn.classList.remove('btn-connect');
             connectBtn.classList.add('btn-disconnect');
             connectBtn.innerText = 'Disconnect from board';        
@@ -177,4 +179,29 @@ async function fadeColors() {
         sendEffect(fadecolors[i], 'FADE_2');
         await new Promise(resolve => setTimeout(resolve, 2000));
     }
+}
+
+function showNotification(message, type) {
+    const notification = document.getElementById("notification");
+
+    // Set the message and background color based on the type
+    notification.textContent = message;
+    if (type === "connected") {
+        notification.style.backgroundColor = "#4CAF50"; // Green for connected
+    } else if (type === "disconnected") {
+        notification.style.backgroundColor = "#f44336"; // Red for disconnected
+    }
+
+    notification.classList.remove("hide");
+    notification.classList.add("show");
+    notification.style.display = "block";
+
+    // Hide the notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove("show");
+        notification.classList.add("hide");
+        setTimeout(() => {
+            notification.style.display = "none";
+        }, 300); // Match this duration with the CSS transition
+    }, 3000);
 }

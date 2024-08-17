@@ -7,45 +7,49 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <span id="helpIcon" class="help-icon">&#63;</span>
-        <h1>LED Lights Wristband Effects</h1>
-        <button type="button" id="connectBtn" class="btn btn-connect">Connect to board</button>
-        <form id="ledForm">
-            <div id="info">
-                <p>ℹ️ Some effects could not work in some wristband models or could require sending the code more than one time to work.</p>
+    <div id="notification" class="notification"></div>
+
+    <main>
+        <div class="container">
+            <span id="helpIcon" class="help-icon">&#63;</span>
+            <h1>LED Lights Wristband Effects</h1>
+            <button type="button" id="connectBtn" class="btn btn-connect">Connect to board</button>
+            <form id="ledForm">
+                <div id="info">
+                    <p>ℹ️ Some effects could not work in some wristband models or could require sending the code more than one time to work.</p>
+                </div>
+                <div class="input-group">
+                    <label for="main-effect">Main Effect:</label>
+                    <select name="main-effect" id="main-effect"></select>
+                </div>
+                <div class="input-group">
+                    <label for="tail-code">Tail Code:</label>
+                    <select name="tail-code" id="tail-code">
+                        <option value="">Select tail code</option>
+                        <option value="FADE_1">FADE_1</option>
+                        <option value="FADE_2">FADE_2</option>
+                        <option value="FADE_3">FADE_3</option>
+                        <option value="FADE_4">FADE_4</option>
+                        <option value="FADE_5">FADE_5</option>
+                        <option value="FADE_6">FADE_6</option>
+                        <option value="SHARP_PROBABILISTIC_1">SHARP_PROBABILISTIC_1</option>
+                        <option value="SHARP_PROBABILISTIC_2">SHARP_PROBABILISTIC_2</option>
+                        <option value="SHARP_PROBABILISTIC_3">SHARP_PROBABILISTIC_3</option>
+                        <option value="SHARP_PROBABILISTIC_4">SHARP_PROBABILISTIC_4</option>
+                        <option value="FADE_PROBABILISTIC_1">FADE_PROBABILISTIC_1</option>
+                        <option value="FADE_PROBABILISTIC_2">FADE_PROBABILISTIC_2</option>
+                        <option value="FADE_PROBABILISTIC_3">FADE_PROBABILISTIC_3</option>
+                        <option value="FADE_PROBABILISTIC_4">FADE_PROBABILISTIC_4</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Send</button>
+            </form>
+            <div class="buttons-container">
+                <button class="effect-btn" onclick="blinkColors()">Blink colors</button>
+                <button class="effect-btn" onclick="fadeColors()">Fade colors</button>
             </div>
-            <div class="input-group">
-                <label for="main-effect">Main Effect:</label>
-                <select name="main-effect" id="main-effect"></select>
-            </div>
-            <div class="input-group">
-                <label for="tail-code">Tail Code:</label>
-                <select name="tail-code" id="tail-code">
-                    <option value="">Select tail code</option>
-                    <option value="FADE_1">FADE_1</option>
-                    <option value="FADE_2">FADE_2</option>
-                    <option value="FADE_3">FADE_3</option>
-                    <option value="FADE_4">FADE_4</option>
-                    <option value="FADE_5">FADE_5</option>
-                    <option value="FADE_6">FADE_6</option>
-                    <option value="SHARP_PROBABILISTIC_1">SHARP_PROBABILISTIC_1</option>
-                    <option value="SHARP_PROBABILISTIC_2">SHARP_PROBABILISTIC_2</option>
-                    <option value="SHARP_PROBABILISTIC_3">SHARP_PROBABILISTIC_3</option>
-                    <option value="SHARP_PROBABILISTIC_4">SHARP_PROBABILISTIC_4</option>
-                    <option value="FADE_PROBABILISTIC_1">FADE_PROBABILISTIC_1</option>
-                    <option value="FADE_PROBABILISTIC_2">FADE_PROBABILISTIC_2</option>
-                    <option value="FADE_PROBABILISTIC_3">FADE_PROBABILISTIC_3</option>
-                    <option value="FADE_PROBABILISTIC_4">FADE_PROBABILISTIC_4</option>
-                </select>
-            </div>
-            <button type="submit" class="btn">Send</button>
-        </form>
-        <div class="buttons-container">
-            <button class="effect-btn" onclick="blinkColors()">Blink colors</button>
-            <button class="effect-btn" onclick="fadeColors()">Fade colors</button>
         </div>
-    </div>
+    </main>
 
     <div id="helpModal" class="modal">
         <div class="modal-content">
